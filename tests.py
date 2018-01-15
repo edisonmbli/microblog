@@ -20,7 +20,7 @@ class UserModelCase(unittest.TestCase):
 
   def test_avatar(self):
     u = User(username='john', email='john@example.com')
-    self.assertEqual(u.avatar(128), 'https://www.gravatar.com/avatar/d4c74594d841139328695756648b6bd6?d=identicon&s=128')
+    self.assertEqual(u.avatar(128), ('https://www.gravatar.com/avatar/d4c74594d841139328695756648b6bd6?d=idention&s=128'))
 
   def test_follow(self):
     u1 = User(username='john', email='john@example.com')
@@ -57,8 +57,8 @@ class UserModelCase(unittest.TestCase):
     now = datetime.utcnow()
     p1 = Post(body='Post from john', author=u1, timestamp=now + timedelta(seconds=1))
     p2 = Post(body='Post from susan', author=u2, timestamp=now + timedelta(seconds=4))
-    p3 = Post(body='Post from mary', author=u1, timestamp=now + timedelta(seconds=3))
-    p4 = Post(body='Post from david', author=u1, timestamp=now + timedelta(seconds=2))
+    p3 = Post(body='Post from mary', author=u3, timestamp=now + timedelta(seconds=3))
+    p4 = Post(body='Post from david', author=u4, timestamp=now + timedelta(seconds=2))
     db.session.add_all([p1, p2, p3, p4])
     db.session.commit()
 
