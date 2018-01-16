@@ -3,12 +3,14 @@ from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextA
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo, Length
 from app.models import User
 
+
 #Login Form
 class LoginForm(FlaskForm):
   username = StringField('Username', validators=[DataRequired()])
   password = PasswordField('Password', validators=[DataRequired()])
   remember_me = BooleanField('Remember Me')
   submit = SubmitField('Sign In')
+
 
 #Regiatration Form
 class RegistrationForm(FlaskForm):
@@ -28,6 +30,7 @@ class RegistrationForm(FlaskForm):
     if user is not None:
       raise ValidationError('Please use a different username.')
 
+
 #Edit Profile Form
 class EditProfileForm(FlaskForm):
   username = StringField('Username', validators=[DataRequired()])
@@ -43,6 +46,12 @@ class EditProfileForm(FlaskForm):
       user = User.query.filter_by(username=self.username.data).first()
       if user is not None:
         raise ValidationError('Please use a different username.')
+
+
+#Post form 
+class PostForm(FlaskForm):
+  post = TextAreaField('Say something', validators=[DataRequired(), Length(min=1, max=140)])
+  submit = SubmitField('Submit')
 
 
 
