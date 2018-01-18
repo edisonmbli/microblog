@@ -66,8 +66,9 @@ class User(UserMixin, db.Model):
   def __repr__(self):
     return '<User {}>'.format(self.username)
 
+
   @staticmethod
-  def verify_reset_password+token(token):
+  def verify_reset_password_token(token):
     try:
       id = jwt.decode(token, app.config['SECRET_KEY'], algorithms=['HS256'])['reset_password']
     except:
