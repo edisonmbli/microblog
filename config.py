@@ -1,5 +1,8 @@
 import os
+from dotenv import load_dotenv
+
 basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, '.env'))
 
 
 class Config(object):
@@ -22,3 +25,8 @@ class Config(object):
 
     YOUDAO_APP_KEY = os.environ.get('YOUDAO_APP_KEY')
     YOUDAO_TRANSLATOR_KEY = os.environ.get('YOUDAO_TRANSLATOR_KEY')
+
+
+class TestConfig(Config):
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite://'
