@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-31 16:28+0800\n"
+"POT-Creation-Date: 2018-02-03 11:18+0800\n"
 "PO-Revision-Date: 2018-01-23 09:04+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh\n"
@@ -98,7 +98,7 @@ msgstr "您的密码已成功修改"
 msgid "About me"
 msgstr "我的简介"
 
-#: app/main/forms.py:13 app/main/forms.py:28
+#: app/main/forms.py:13 app/main/forms.py:28 app/main/forms.py:34
 msgid "Submit"
 msgstr "提交"
 
@@ -106,15 +106,19 @@ msgstr "提交"
 msgid "Say something"
 msgstr "说点什么吧 :-)"
 
+#: app/main/forms.py:32
+msgid "Message"
+msgstr "消息"
+
 #: app/main/routes.py:38
 msgid "Your post is now live!"
 msgstr "您的文章已被发布！"
 
-#: app/main/routes.py:49
+#: app/main/routes.py:49 app/templates/base.html:25
 msgid "Home"
 msgstr "主页"
 
-#: app/main/routes.py:65
+#: app/main/routes.py:65 app/templates/base.html:26
 msgid "Explore"
 msgstr "探索"
 
@@ -148,18 +152,81 @@ msgstr "不能取消关注您自己！"
 msgid "You are not following %(username)s."
 msgstr "您已取消关注 %(username)s"
 
-#: app/templates/_post.html:16
+#: app/main/routes.py:166
+msgid "Your message has been sent."
+msgstr "您的消息已成功发送"
+
+#: app/main/routes.py:168
+msgid "Send Message"
+msgstr "发送消息"
+
+#: app/templates/_post.html:18
 #, python-format
 msgid "%(username)s said %(when)s"
 msgstr "%(username)s 说 %(when)s"
 
-#: app/templates/_post.html:27
+#: app/templates/_post.html:29
 msgid "Translate"
 msgstr "翻译"
 
-#: app/templates/base.html:74
+#: app/templates/base.html:30
+msgid "Login"
+msgstr "登录"
+
+#: app/templates/base.html:32
+msgid "Profile"
+msgstr "个人主页"
+
+#: app/templates/base.html:33
+msgid "Logout"
+msgstr "登出"
+
+#: app/templates/base.html:34 app/templates/messages.html:4
+msgid "Messages"
+msgstr "小道消息"
+
+#: app/templates/base.html:76
 msgid "Error: Could not contact server."
 msgstr "服务器繁忙"
+
+#: app/templates/messages.html:12
+msgid "Newer messages"
+msgstr "更早前的消息"
+
+#: app/templates/messages.html:17
+msgid "Older message"
+msgstr "更后面的消息"
+
+#: app/templates/send_message.html:5
+#, python-format
+msgid "Send Message to %(recipient)s"
+msgstr "给%(recipient)s发送消息"
+
+#: app/templates/user.html:26
+msgid "Send private mesage"
+msgstr "发送私信"
+
+#: app/templates/user_popup.html:14
+msgid "Last seen on"
+msgstr "最后一次登录在"
+
+#: app/templates/user_popup.html:16
+#, python-format
+msgid "%(count)d followers"
+msgstr "%(count)d 粉丝"
+
+#: app/templates/user_popup.html:16
+#, python-format
+msgid "%(count)d following"
+msgstr "正在关注 %(count)d"
+
+#: app/templates/user_popup.html:20
+msgid "Follow"
+msgstr "关注"
+
+#: app/templates/user_popup.html:24
+msgid "Unfollow"
+msgstr "取消关注"
 
 #: app/templates/errors/404.html:4
 msgid "File Not Found"
