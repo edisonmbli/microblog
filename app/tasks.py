@@ -1,9 +1,12 @@
 import time
 import sys
+import json
 from rq import get_current_job
 from app import create_app
 from app import db
 from app.models import Task, User, Post
+from flask import render_template
+from app.email import send_email
 
 
 # prepare app context
@@ -60,7 +63,11 @@ def export_posts(user_id):
                    recipients=[user.email],
                    text_body=render_template(
                        'email/export_posts.txt', user=user),
-                   html_body
+                   html_body=render_template(
+                       'email/export_posts.html', user=user),
+                   attachments=[('post.json', 'application/json',
+                                 json.dumps({'posts': data}, indent=4))],
+                   sync=True
                    )
 
     except:
