@@ -28,7 +28,7 @@ class PaginatedAPIMixin(object):
             '_links': {
                 'self': url_for(endpoint, page=page, per_page=per_page, **kwargs),
                 'next': url_for(endpoint, page=page + 1, per_page=per_page, **kwargs) if resources.has_next else None,
-                'prev': url_for(endpoint, page=page - 1, per_page=per_page, **kwargs) is resources.has_prev else None
+                'prev': url_for(endpoint, page=page - 1, per_page=per_page, **kwargs) if resources.has_prev else None
             }
         }
         return data
@@ -169,7 +169,7 @@ class User(PaginatedAPIMixin, UserMixin, db.Model):
             'follower_count': self.followers.count(),
             'followed_count': self.followed.count(),
             '_links': {
-                'self': url_for('api.get_user'. id=self.id),
+                'self': url_for('api.get_user', id=self.id),
                 'followers': url_for('api.get_followers', id=self.id),
                 'followed': url_for('api.get_followed', id=self.id),
                 'avatar': self.avatar(128)
